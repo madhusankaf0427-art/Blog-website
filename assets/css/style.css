@@ -1,0 +1,45 @@
+/* Custom CSS for Minoz Gallery */
+
+/* Glassmorphism utility */
+.glass {
+    background: rgba(31, 41, 55, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #030712; 
+}
+::-webkit-scrollbar-thumb {
+    background: #374151; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ec4899; 
+}
+
+/* Drag and Drop Zone Active State */
+.drag-active {
+    border-color: #ec4899 !important;
+    background-color: rgba(236, 72, 153, 0.1) !important;
+}

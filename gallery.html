@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery - Minoz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], },
+                    colors: {
+                        brand: { 500: '#ec4899', 600: '#db2777', },
+                        dark: { 800: '#1f2937', 900: '#111827', 950: '#030712' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-950 text-gray-100 font-sans antialiased overflow-x-hidden min-h-screen flex flex-col">
+    
+    <!-- Navbar -->
+    <nav class="glass fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/30">M</div>
+                    <a href="index.html" class="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Minoz Gallery</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-gray-400 hover:text-white relative group px-1 py-2 text-sm font-semibold transition-colors">Home</a>
+                        <a href="gallery.html" class="text-white relative group px-1 py-2 text-sm font-semibold transition-colors">
+                            Videos
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-500 transform scale-x-100 transition-transform duration-300"></span>
+                        </a>
+                        <a href="about.html" class="text-gray-400 hover:text-white relative group px-1 py-2 text-sm font-semibold transition-colors">About</a>
+                        <a href="upload.html" class="bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-purple-500/30 flex items-center gap-2 hover:scale-105">
+                            <i class="fas fa-cloud-upload-alt"></i> Upload Video
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-28 pb-20 relative">
+        <div class="absolute top-0 right-0 w-[40vw] h-[40vw] bg-brand-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 animate-fade-in">
+            <!-- Header & Filter -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6 border-b border-gray-800 pb-8">
+                <div>
+                    <h1 class="text-4xl font-black mb-3">Video Gallery</h1>
+                    <p class="text-gray-400 font-medium">Explore our massive collection of premium short films, photography, and timelapses.</p>
+                </div>
+                <div class="flex gap-4 w-full md:w-auto">
+                    <div class="relative flex-grow md:w-64">
+                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                        <input type="text" placeholder="Search videos..." class="w-full bg-dark-900 border border-gray-700 rounded-full py-2.5 px-10 focus:outline-none focus:border-brand-500 transition-colors text-sm">
+                    </div>
+                    <button class="bg-dark-800 border border-gray-700 hover:bg-dark-700 px-6 py-2.5 rounded-full transition-colors flex items-center gap-2 text-sm font-semibold">
+                        <i class="fas fa-filter text-brand-500"></i> <span class="hidden sm:inline">Filter</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="flex gap-3 overflow-x-auto pb-4 mb-8 scrollbar-hide">
+                <button class="bg-brand-500 text-white px-5 py-2 rounded-full font-semibold text-sm whitespace-nowrap">All Videos</button>
+                <button class="glass hover:bg-white/10 px-5 py-2 rounded-full font-semibold text-sm text-gray-300 whitespace-nowrap transition-colors">Nature</button>
+                <button class="glass hover:bg-white/10 px-5 py-2 rounded-full font-semibold text-sm text-gray-300 whitespace-nowrap transition-colors">Technology</button>
+                <button class="glass hover:bg-white/10 px-5 py-2 rounded-full font-semibold text-sm text-gray-300 whitespace-nowrap transition-colors">Urban</button>
+                <button class="glass hover:bg-white/10 px-5 py-2 rounded-full font-semibold text-sm text-gray-300 whitespace-nowrap transition-colors">Cinematography</button>
+                <button class="glass hover:bg-white/10 px-5 py-2 rounded-full font-semibold text-sm text-gray-300 whitespace-nowrap transition-colors">Vlogs</button>
+            </div>
+            
+            <!-- Video Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Add 6 Video Cards -->
+                <!-- Card 1 -->
+                <div class="group rounded-2xl overflow-hidden glass hover:-translate-y-2 transition-all duration-300 shadow-2xl">
+                    <div class="relative aspect-video overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=800" alt="Camera" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <div class="w-16 h-16 rounded-full bg-brand-500/90 backdrop-blur flex items-center justify-center text-white pl-1 shadow-lg shadow-brand-500/50 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-950/80 text-xs font-bold px-2 py-1 rounded backdrop-blur-sm border border-white/10">10:45</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg leading-tight mb-2 group-hover:text-brand-500 transition-colors">Mastering Photography Angles</h3>
+                        <p class="text-gray-400 text-sm font-medium mb-3">Learn the secret to perfect shots in urban environments.</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-500 font-medium">
+                            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=100" alt="Creator" class="w-6 h-6 rounded-full">
+                            <span>Creator Studio</span>
+                            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+                            <span>45K views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group rounded-2xl overflow-hidden glass hover:-translate-y-2 transition-all duration-300 shadow-2xl">
+                    <div class="relative aspect-video overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?auto=format&fit=crop&q=80&w=800" alt="Night city" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <div class="w-16 h-16 rounded-full bg-brand-500/90 backdrop-blur flex items-center justify-center text-white pl-1 shadow-lg shadow-brand-500/50 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-950/80 text-xs font-bold px-2 py-1 rounded backdrop-blur-sm border border-white/10">3:20</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg leading-tight mb-2 group-hover:text-brand-500 transition-colors">Cyberpunk City Nights In 4K</h3>
+                        <p class="text-gray-400 text-sm font-medium mb-3">A drone tour over the beautiful neon city landscapes.</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-500 font-medium">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100" alt="Creator" class="w-6 h-6 rounded-full">
+                            <span>Neon Explorer</span>
+                            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+                            <span>12K views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group rounded-2xl overflow-hidden glass hover:-translate-y-2 transition-all duration-300 shadow-2xl">
+                    <div class="relative aspect-video overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=800" alt="Code" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <div class="w-16 h-16 rounded-full bg-brand-500/90 backdrop-blur flex items-center justify-center text-white pl-1 shadow-lg shadow-brand-500/50 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-950/80 text-xs font-bold px-2 py-1 rounded backdrop-blur-sm border border-white/10">24:10</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg leading-tight mb-2 group-hover:text-brand-500 transition-colors">Building A Portfolio Without Code</h3>
+                        <p class="text-gray-400 text-sm font-medium mb-3">Watch how you can create stunning portfolios easily.</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-500 font-medium">
+                            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&q=80&w=100" alt="Creator" class="w-6 h-6 rounded-full">
+                            <span>Web Academy</span>
+                            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+                            <span>89K views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4,5,6 (duplicate layout but different content) -->
+                <!-- Card 4 -->
+                <div class="group rounded-2xl overflow-hidden glass hover:-translate-y-2 transition-all duration-300 shadow-2xl">
+                    <div class="relative aspect-video overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=800" alt="Mountains" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <div class="w-16 h-16 rounded-full bg-brand-500/90 backdrop-blur flex items-center justify-center text-white pl-1 shadow-lg shadow-brand-500/50 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-950/80 text-xs font-bold px-2 py-1 rounded backdrop-blur-sm border border-white/10">14:00</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg leading-tight mb-2 group-hover:text-brand-500 transition-colors">Himalayas Expedition Drone 8K</h3>
+                        <p class="text-gray-400 text-sm font-medium mb-3">Breathtaking views of the highest mountains.</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-500 font-medium">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="Creator" class="w-6 h-6 rounded-full">
+                            <span>Earth Videos</span>
+                            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+                            <span>1M views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group rounded-2xl overflow-hidden glass hover:-translate-y-2 transition-all duration-300 shadow-2xl">
+                    <div class="relative aspect-video overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Tech" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <div class="w-16 h-16 rounded-full bg-brand-500/90 backdrop-blur flex items-center justify-center text-white pl-1 shadow-lg shadow-brand-500/50 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-950/80 text-xs font-bold px-2 py-1 rounded backdrop-blur-sm border border-white/10">5:55</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg leading-tight mb-2 group-hover:text-brand-500 transition-colors">Digital Art Process Timelapse</h3>
+                        <p class="text-gray-400 text-sm font-medium mb-3">Watch an artist create abstract digital arts.</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-500 font-medium">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100" alt="Creator" class="w-6 h-6 rounded-full">
+                            <span>Artistic Hub</span>
+                            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+                            <span>210K views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="group rounded-2xl overflow-hidden glass hover:-translate-y-2 transition-all duration-300 shadow-2xl">
+                    <div class="relative aspect-video overflow-hidden cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=800" alt="Food" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                            <div class="w-16 h-16 rounded-full bg-brand-500/90 backdrop-blur flex items-center justify-center text-white pl-1 shadow-lg shadow-brand-500/50 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                <i class="fas fa-play text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-dark-950/80 text-xs font-bold px-2 py-1 rounded backdrop-blur-sm border border-white/10">18:30</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg leading-tight mb-2 group-hover:text-brand-500 transition-colors">Street Food Tour In Japan</h3>
+                        <p class="text-gray-400 text-sm font-medium mb-3">A culinary journey across the best Japanese streets.</p>
+                        <div class="flex items-center gap-3 text-xs text-gray-500 font-medium">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100" alt="Creator" class="w-6 h-6 rounded-full">
+                            <span>Mike Travel</span>
+                            <span class="w-1 h-1 rounded-full bg-gray-600"></span>
+                            <span>305K views</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <button class="bg-dark-800 hover:bg-dark-700 border border-gray-700 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg text-sm">
+                    Load More Videos
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm font-medium">
+                    &copy; 2026 Minoz Gallery. All rights reserved. 
+                </p>
+                <div class="text-gray-500 text-sm font-medium flex items-center gap-1">
+                    Made with <i class="fas fa-heart text-brand-500 mx-1"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

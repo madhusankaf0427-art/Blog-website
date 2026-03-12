@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Minoz Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'], },
+                    colors: {
+                        brand: { 500: '#ec4899', 600: '#db2777', },
+                        dark: { 800: '#1f2937', 900: '#111827', 950: '#030712' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-950 text-gray-100 font-sans antialiased overflow-x-hidden min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="glass fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/30">M</div>
+                    <a href="index.html" class="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Minoz Gallery</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-gray-400 hover:text-white relative group px-1 py-2 text-sm font-semibold transition-colors">Home</a>
+                        <a href="gallery.html" class="text-gray-400 hover:text-white relative group px-1 py-2 text-sm font-semibold transition-colors">Videos</a>
+                        <a href="about.html" class="text-white relative group px-1 py-2 text-sm font-semibold transition-colors">
+                            About
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-brand-500 transform scale-x-100 transition-transform duration-300"></span>
+                        </a>
+                        <a href="upload.html" class="bg-gradient-to-r from-brand-600 to-purple-600 hover:from-brand-500 hover:to-purple-500 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-purple-500/30 flex items-center gap-2 hover:scale-105">
+                            <i class="fas fa-cloud-upload-alt"></i> Upload Video
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-dark-900 border-b border-gray-800" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="index.html" class="text-gray-400 hover:text-white hover:bg-white/5 block px-4 py-3 rounded-xl text-base font-semibold">Home</a>
+                <a href="gallery.html" class="text-gray-400 hover:text-white hover:bg-white/5 block px-4 py-3 rounded-xl text-base font-semibold">Videos</a>
+                <a href="about.html" class="text-white bg-white/5 block px-4 py-3 rounded-xl text-base font-semibold">About</a>
+                <a href="upload.html" class="text-brand-500 font-bold block px-4 py-3 rounded-xl text-base mt-4 bg-brand-500/10"><i class="fas fa-cloud-upload-alt mr-2"></i> Upload Video</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <main class="flex-grow pt-28 pb-20 relative">
+        <div class="absolute top-1/4 left-[-10%] w-[40vw] h-[40vw] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 animate-fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center my-16">
+                <!-- Image side -->
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-brand-500 to-purple-600 rounded-[2rem] opacity-30 blur-2xl font-bold"></div>
+                    <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=1000" alt="Camera Setup" class="relative rounded-3xl shadow-2xl w-full h-auto object-cover aspect-[4/5] border border-white/10">
+                    
+                    <!-- Floating card -->
+                    <div class="absolute -bottom-8 -right-8 glass p-6 rounded-2xl border border-white/10 shadow-2xl animate-[pulse-slow_4s_ease-in-out_infinite]">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-video text-xl"></i></div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">Total Uploads</p>
+                                <p class="text-2xl font-black text-white">100K+</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content side -->
+                <div>
+                    <span class="text-brand-500 font-extrabold uppercase tracking-widest text-sm bg-brand-500/10 px-4 py-2 rounded-full border border-brand-500/30">Our Mission</span>
+                    <h1 class="text-5xl md:text-6xl font-black mt-6 mb-8 leading-tight">Empowering <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-purple-500">Video Creators</span></h1>
+                    <p class="text-xl text-gray-300 mb-6 font-medium leading-relaxed">
+                        Minoz Gallery was founded with a single purpose: to provide filmmakers, vloggers, and artists with a stunning platform that truly puts their videos first. 
+                    </p>
+                    <p class="text-gray-400 mb-10 leading-relaxed text-lg">
+                        Built on pure HTML, CSS, JavaScript and beautifully styled with TailwindCSS, our lightning-fast platform ensures that no detail of your art is ever loss. Whether you upload a nature documentary or a gaming clip, the user experience stays smooth, fast, and pristine.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                        <!-- Feature 1 -->
+                        <div class="glass p-5 rounded-2xl border border-white/5 hover:border-brand-500/50 transition-colors">
+                            <i class="fas fa-bolt text-2xl text-purple-500 mb-3 block"></i>
+                            <h3 class="font-bold text-white text-lg mb-1">Ultra Fast</h3>
+                            <p class="text-sm text-gray-400 font-medium">Lightning-fast content delivery without Node.js delays.</p>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div class="glass p-5 rounded-2xl border border-white/5 hover:border-brand-500/50 transition-colors">
+                            <i class="fas fa-paint-brush text-2xl text-pink-500 mb-3 block"></i>
+                            <h3 class="font-bold text-white text-lg mb-1">Aesthetic Design</h3>
+                            <p class="text-sm text-gray-400 font-medium">Glassmorphism UI giving videos the premium touch.</p>
+                        </div>
+                    </div>
+
+                    <a href="upload.html" class="inline-block border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white px-8 py-3.5 rounded-full font-bold transition-all text-lg shadow-[0_0_15px_rgba(236,72,153,0.2)] hover:shadow-[0_0_25px_rgba(236,72,153,0.5)]">
+                        Join Platform <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-gray-800 py-8 text-center text-gray-500 text-sm font-medium">
+        <div class="max-w-7xl mx-auto px-4">
+            &copy; 2026 Minoz Gallery. All rights reserved. 
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
